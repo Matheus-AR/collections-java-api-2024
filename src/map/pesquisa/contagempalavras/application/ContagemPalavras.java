@@ -23,12 +23,20 @@ public class ContagemPalavras {
         System.out.println(palavrasMap);
     }
 
-    /*
-    TODO: Implementar o método para encontrar a palavra mais frequente
-    public String encontrarPalavraMaisFrequente() {
 
+    public String encontrarPalavraMaisFrequente() {
+        String palavraMaisFrequente = null;
+        int maiorFrequencia = 0;
+        if(!palavrasMap.isEmpty()) {
+            for (Map.Entry<String, Integer> entry: palavrasMap.entrySet()) {
+                if (entry.getValue() > maiorFrequencia) {
+                    maiorFrequencia = entry.getValue();
+                    palavraMaisFrequente = entry.getKey();
+                }
+            }
+        }
+        return palavraMaisFrequente;
     }
-    */
 
     public static void main(String[] args) {
         ContagemPalavras contagemPalavras = new ContagemPalavras();
@@ -42,5 +50,7 @@ public class ContagemPalavras {
         contagemPalavras.removerPalavra("Caju");
 
         contagemPalavras.exibirContagemPalavras();
+
+        System.out.println(contagemPalavras.encontrarPalavraMaisFrequente());
     }
 }
